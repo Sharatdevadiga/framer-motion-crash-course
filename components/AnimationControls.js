@@ -3,7 +3,6 @@ import { motion, useAnimationControls } from "framer-motion";
 
 const AnimationControls = () => {
   const controls = useAnimationControls();
-
   const handleClick = () => {
     controls.start("flip");
   };
@@ -17,7 +16,7 @@ const AnimationControls = () => {
         gap: "0.8rem",
       }}
     >
-      <button onClick={handleClick} className="example-button">
+      <button className="example-button" onClick={handleClick}>
         Flip it!
       </button>
       <motion.div
@@ -36,6 +35,7 @@ const AnimationControls = () => {
         }}
         initial="initial"
         animate={controls}
+        whileHover="flip"
       ></motion.div>
     </div>
   );

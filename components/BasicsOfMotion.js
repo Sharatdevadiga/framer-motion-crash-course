@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const BasicsOfMotion = () => {
-  const [isVisible, setIsVisible] = useState(true);
+  const [isvisible, setIsvisible] = useState(true);
   return (
     <div
       style={{
@@ -13,32 +13,27 @@ const BasicsOfMotion = () => {
       }}
     >
       <motion.button
-        onClick={() => setIsVisible(!isVisible)}
+        onClick={() => {
+          setIsvisible(!isvisible);
+        }}
         className="example-button"
         layout
       >
-        Show/Hide
+        show/hide
       </motion.button>
       <AnimatePresence mode="popLayout">
-        {isVisible && (
+        {isvisible && (
           <motion.div
-            initial={{
-              rotate: "0deg",
-              scale: 0,
-              y: 0,
-            }}
-            animate={{
-              rotate: "180deg",
-              scale: 1,
-              y: [0, 150, -150, -150, 0],
-            }}
+            initial={{ rotate: "0deg", scale: 0, y: 0 }}
+            animate={{ rotate: "180deg", scale: 1, y: [0, 150, -150, -150, 0] }}
             exit={{
               rotate: "0deg",
               scale: 0,
-              y: 0,
             }}
             transition={{
               duration: 1,
+              // type: "spring",
+              // damping: 10,
               ease: "backInOut",
               times: [0, 0.25, 0.5, 0.85, 1],
             }}

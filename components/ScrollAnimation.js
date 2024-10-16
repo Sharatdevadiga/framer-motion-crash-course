@@ -3,31 +3,27 @@ import React from "react";
 
 const ScrollAnimations = () => {
   const { scrollYProgress } = useScroll();
-
   const scaleX = useSpring(scrollYProgress);
-
   const background = useTransform(
     scrollYProgress,
     [0, 1],
-    ["rgb(86, 1, 245)", "rgb(1, 245, 13)"]
+    ["rgb(255,0,0)", "rgb(0,255,0)"]
   );
 
   return (
     <div>
       <motion.div
         style={{
-          // scaleX: scrollYProgress,
+          // scaleX:scrollYProgress,
           scaleX,
-          transformOrigin: "left",
-          // background: "blue",
           background,
-          position: "sticky",
-          top: 0,
           width: "100%",
-          height: "20px",
+          height: "25px",
+          top: 0,
+          position: "sticky",
+          transformOrigin: "left",
         }}
-      />
-
+      ></motion.div>
       <div
         style={{
           maxWidth: "700px",
